@@ -1,4 +1,4 @@
-
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -16,11 +16,11 @@ app.use(bodyParser.json());
 
 
 // DB Config
-const db = require('./config/keys').mongoURI;
+
 
 // Connect to Mongo
 mongoose
-    .connect(db, {
+    .connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useCreateIndex: true
     }) // Adding new mongo url parser
